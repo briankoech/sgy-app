@@ -8,8 +8,9 @@
         <div class="priority-container">
             <md-card *ngFor="let goal of (goals | async | filter:i)">
                 <md-card-title>{{ goal.title }}</md-card-title>
-                <md-card-subtitle>{{ goal.email }} {{ getDate(goal.date) }}</md-card-subtitle>
+                <md-card-subtitle>{{ goal.email }}</md-card-subtitle>
                 <md-card-content>{{ goal.description }}</md-card-content>
+                <md-card-subtitle>{{  getDate(goal.date) }}</md-card-subtitle>
                 <button md-button (click)="onMenuOpen(goal.$key)" [mdMenuTriggerFor]="menu">
             <md-icon>more_vert</md-icon>
         </button>
