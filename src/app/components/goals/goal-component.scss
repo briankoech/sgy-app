@@ -1,0 +1,36 @@
+md-toolbar {
+    button {
+        margin-left: auto;
+    }
+}
+
+.goals-container {
+    margin: 20px;
+
+    h2 {
+
+    }
+    .priority-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        md-card {
+            width: 30%;
+            margin: 10px 0;
+
+            button {
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+        }
+    }
+}
+
+.btn-add {
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+}

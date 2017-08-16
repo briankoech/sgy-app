@@ -20,8 +20,12 @@ export class GoalsService {
         return this.afDb.list(`goals`).push({
             ...data, 
             email: this.authService.currentUser.email, 
-            date: new Date()
+            date: Date.now()
         });
+    }
+
+    public fetchGoal(goalId) {
+        return this.afDb.object(`goals/${goalId}`);
     }
 
     public update(goalId, data) {

@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { GoalsComponent } from './components/goals/goals-component';
 import { AddGoalDialog } from './components/dialogs/add-goal-dialog/add-goal-dialog';
+import { FilterPipe } from './services/filter-pipe';
 
 import { environment } from '../environments/environment';
 
@@ -39,7 +40,8 @@ const routes: Route[] = [
         AppComponent,
         LoginComponent,
         GoalsComponent,
-        AddGoalDialog
+        AddGoalDialog,
+        FilterPipe
     ],
     imports: [
         BrowserModule,

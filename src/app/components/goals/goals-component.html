@@ -1,11 +1,34 @@
-<md-toolbar>
+<md-toolbar color="primary">
     <span>SGY GOALS</span>
     <button md-button (click)="logout()">Logout</button>
 </md-toolbar>
 <div class="goals-container">
-    Goals Component
+    <div *ngFor="let priority of priorities; let i=index">
+        <h2>Priority: {{ priority }}</h2>
+        <div class="priority-container">
+            <md-card *ngFor="let goal of (goals | async | filter:i)">
+                <md-card-title>{{ goal.title }}</md-card-title>
+                <md-card-subtitle>{{ goal.email }} {{ getDate(goal.date) }}</md-card-subtitle>
+                <md-card-content>{{ goal.description }}</md-card-content>
+                <button md-button (click)="onMenuOpen(goal.$key)" [mdMenuTriggerFor]="menu">
+            <md-icon>more_vert</md-icon>
+        </button>
+            </md-card>
+        </div>
+    </div>
+</div>
 
-    <button md-fab class="btn-add" (click)="openDialog()">
+<md-menu #menu="mdMenu">
+    <button md-menu-item (click)="openEditDialog()">
+       <md-icon> mode_edit</md-icon>
+       <span>Edit</span>
+  </button>
+    <button md-menu-item disabled>
+      <md-icon>delete</md-icon>
+      <span>Delete</span>
+  </button>
+</md-menu>
+
+<button md-fab class="btn-add" (click)="openDialog()">
         <md-icon>add</md-icon>
     </button>
-</div>
