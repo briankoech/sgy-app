@@ -1,0 +1,21 @@
+<h2 md-dialog-title>Add Goal</h2>
+
+<form (ngSubmit)="addGoal(goalForm.value)" [formGroup]="goalForm">
+    <md-dialog-content>
+        <md-input-container>
+            <input mdInput type="text" placeholder="Title" formControlName="title">
+        </md-input-container>
+        <md-input-container>
+            <input mdInput type="text" placeholder="Description" formControlName="description">
+        </md-input-container>
+        <md-select placeholder="Priority" formControlName="priority">
+            <md-option *ngFor="let priority of priorities; let i=index" [value]="i">
+                {{ priority }}
+            </md-option>
+        </md-select>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <button md-button md-dialog-close>Cancel</button>
+        <button md-button [disabled]="goalForm.invalid">Save</button>
+    </md-dialog-actions>
+</form>
